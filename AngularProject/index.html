@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html ng-app="eventapp">
+<head>
+    <script src="lib/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
+    <script src="lib/angularjs/angular.min.js" type="text/javascript"></script>
+    <script src="lib/bootstrap-3.3.6-dist/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="js/app.js" type="text/javascript"></script>
+    <script src="js/controllers/MainController.js" type="text/javascript"></script>
+    <link href="lib/bootstrap-3.3.6-dist/css/bootstrap.min.css">
+
+<style>
+#container {
+ width: 1000px;
+ overflow: hidden;
+ margin: 50px auto;
+ background: white;
+}
+
+.photobanner {
+ height: 233px;
+ width: 3550px;
+ margin-bottom: 80px;
+}
+ 
+.photobanner img {
+ -webkit-transition: all 0.5s ease;
+ -moz-transition: all 0.5s ease;
+ -o-transition: all 0.5s ease;
+ -ms-transition: all 0.5s ease;
+ transition: all 0.5s ease;
+}
+ 
+.photobanner img:hover {
+ -webkit-transform: scale(1.1);
+ -moz-transform: scale(1.1);
+ -o-transform: scale(1.1);
+ -ms-transform: scale(1.1);
+ transform: scale(1.1);
+ cursor: pointer;
+ 
+ -webkit-box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
+ -moz-box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
+ box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
+}
+/*keyframe animations*/
+.first {
+	-webkit-animation: bannermove 30s linear infinite;
+	   -moz-animation: bannermove 30s linear infinite;
+	    -ms-animation: bannermove 30s linear infinite;
+	     -o-animation: bannermove 30s linear infinite;
+	        animation: bannermove 30s linear infinite;
+}
+
+@keyframes "bannermove" {
+ 0% {
+    margin-left: 0px;
+ }
+ 100% {
+    margin-left: -2125px;
+ }
+
+}
+
+@-moz-keyframes bannermove {
+ 0% {
+   margin-left: 0px;
+ }
+ 100% {
+   margin-left: -2125px;
+ }
+
+}
+
+@-webkit-keyframes "bannermove" {
+ 0% {
+   margin-left: 0px;
+ }
+ 100% {
+   margin-left: -2125px;
+ }
+
+}
+
+@-ms-keyframes "bannermove" {
+ 0% {
+   margin-left: 0px;
+   
+ }
+ 100% {
+   margin-left: -2125px;
+ }
+
+}
+
+@-o-keyframes "bannermove" {
+ 0% {
+   margin-left: 0px;
+ }
+ 100% {
+   margin-left: -2125px;
+ }
+
+}
+</style>
+<meta charset="ISO-8859-1">
+<title>Event Management</title>
+</head>
+<body>
+<div ng-controller="MainCtrl">
+<div id="test">{{name}}</div>
+
+
+<div>
+<div>
+<div class="container">
+
+
+<div id="container">
+    <header>
+
+    </header>
+    
+   <div class="photobanner" >
+     <img class="first" src="../images/11.jpg" alt="" width="250px" height="150px" />
+     <img src="../images/01.jpg" alt="" width="250px" height="150px" />
+     <img src="../images/02.jpg" alt="" width="250px" height="150px" />
+     <img src="../images/03.jpg" alt="" width="250px" height="150px" />
+     <img src="../images/06.jpg" alt="" width="250px" height="150px"/>
+     <img src="../images/07.jpg" alt="" width="250px" height="150px" />
+     <img src="../images/08.jpg" alt="" width="250px" height="150px"/>
+    </div>
+
+
+
+</div>
+    <table>
+        <tr>
+            <td>
+                First Name
+            </td>
+            <td>
+                <input class="form-control" ng-model="volunteer.fname">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Second Name
+            </td>
+            <td>
+                <input class="form-control" ng-model="volunteer.sname">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Address
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Country
+            </td>
+            <td>
+                <input class="form-control" ng-model="volunteer.country">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Street
+            </td>
+            <td>
+                <input class="form-control" ng-model="volunteer.street">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                City
+            </td>
+            <td>
+                <input class="form-control" ng-model="volunteer.city">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Email Id
+            </td>
+            <td>
+                <input class="form-control" ng-model="volunteer.email">
+            </td>
+        </tr>
+        <tr>
+            <td><button class="btn btn-info" ng-click="addVolunteerInfo()">Submit</button></td>
+        </tr>
+    </table>
+    <table>
+        <thead>
+        <th>Volunteer Name </th>
+        <th>Gender</th>
+        <th>City</th>
+        <th>City</th>
+        </thead>
+        <tbody>
+        <tr ng-repeat="volunteer in volunteerList">
+            <td>{{volunteer.firstname}}</td>
+            <td>{{volunteer.city}}</td>
+            <td>{{volunteer.firstname}}</td>
+            <td>{{volunteer.country}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>

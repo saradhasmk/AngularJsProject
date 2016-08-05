@@ -1,0 +1,81 @@
+<!doctype>
+<html>
+<head>
+<script src="jquery-1.11.2.min.js" /></script>
+</head>
+<body>
+<h1>Jquery Sample</h1>
+<ul id="Books">
+Books
+<li id="Books1">Tamil
+  <ul>
+  <li>Novels</li>
+  <ul>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li></ul>
+  <li class="ss">Short Stories</li>
+  <ul>
+  <li>4</li>
+  <li>5</li>
+  <li>6</li></ul>
+  <li>Comics</li>
+  <ul>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li></ul>
+  </ul>
+ <span>-----</span>
+</li>
+
+<li id="Books2">English
+ <ul>
+  <li>Novels</li>
+  <ul>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li></ul>
+  <li>Short Stories</li>
+ 
+  <ul>
+  <li>4</li>
+  <li>5</li>
+  <li>6</li></ul>
+  <li>Comics</li>
+  <ul>
+  <li class="comics">1</li>
+  <li>2</li>
+  <li>3</li></ul>
+  </ul>
+   <span>-----</span>
+</li>
+
+</ul>
+<br><br>
+<input type="button" value="Find()" onclick="fnFind();" />
+<input type="button" value="Closest()" onclick="fnClosest()">
+<input type="button" value="Children()" onclick="fnChildren()">
+<input type="button" value="parent()" onclick="fnParent()">
+<input type="button" value="parents()" onclick="fnParents()">
+<script>
+function fnFind(){
+$("#Books1").find('li').css({"color": "red", "border": "2px solid red"});
+};
+
+
+function fnClosest(){
+$(".comics").closest('ul').css({"color": "red", "border": "2px solid red"});
+}
+function fnChildren(){
+$("#Books1").children('ul .ss').css({"color": "red", "border": "2px solid red"});
+}
+function fnParent(){
+$(".comics").parent('ul').css({"color": "red", "border": "2px solid red"});
+}
+function fnParents(){
+$(".comics").parents('ul').css({"color": "red", "border": "2px solid red"});
+}
+
+</script>
+</body>
+</html>

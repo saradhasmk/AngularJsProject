@@ -1,0 +1,38 @@
+<!doctype>
+<html>
+<body>
+<script>
+//Prototypal Inheritance
+var animal={
+"eats":true
+}
+var rabbit={"jumbs":true};
+rabbit.__proto__=animal;
+alert(rabbit.eats);
+alert(animal.jumbs);
+alert(typeof(rabbit)===typeof(animal));
+var cat={"drinks":true};
+cat=Object.create(animal);
+alert("cat : " +cat.eats);
+
+//Prototype
+
+var fruit={"seedless":false};
+var mango=function(name){
+//this.name=name;
+mango.parent.constructor.apply(this,arguments);
+}
+mango.prototype=fruit;
+var alphonsa=new mango("alphonsa");
+console.log("Mango name: "+alphonsa.name);
+console.log("Mango seedless : "+alphonsa.seedless);
+//Psudo Class Inheritance
+var books=function(name,type,author){
+this.name=name;
+this.type=type;
+this.author=author;
+}
+var book1=new books("Thanneer Desam","Tamil","Vairamuthu");
+</script>
+</body>
+</html>

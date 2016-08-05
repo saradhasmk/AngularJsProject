@@ -1,0 +1,95 @@
+<!doctype>
+<html>
+<head>
+<script src="jquery-1.11.2.min.js" /></script>
+</head>
+<body>
+<h1>Jquery Sample</h1>
+<div id="Array_Div"></div>
+<div id="JSON_Div"></div>
+<div id="numberJSON_Div"></div>
+<div id="Array_JSON_Div"></div>
+<div id="arrJSONPersonWithAge_Div"></div>
+<span class="test">1</span>
+<span class="test">2</span>
+<span class="test">3</span>
+<span class="test">4</span>
+<span class="test">5</span>
+<ul>
+<li>Mango</li>
+<li>apple</li>
+<li>orange</li>
+<li>lemon</li>
+</ul>
+
+<li>Mango1</li>
+<li>apple2</li>
+<li>orange3</li>
+<li>lemon4</li>
+
+<div id="listFruit1"></div>
+<div id="listFruit2"></div>
+<script>
+$(document).ready(function(){
+var arrPerson=["saradha","sankari","devi","Priya"];
+var objPerson={"name":"saradha","name":"sankari","name":"devi","name":"Priya"};
+var arrJSONPerson=[{"name":"saradha"},{"name":"sankari"},{"name":"devi"},{"name":"Priya"}];
+var arrJSONPersonWithAge=[{"name":"saradha","age":21},{"name":"sankari","age":22},{"name":"devi","age":23},{"name":"Priya","age":25}];
+var objNumber={"one":"1","two":"2","three":"3","four":"4","five":"5"};
+var resultVal="";
+$.each(arrPerson , function (key,value){
+console.log("Array Key : "+key);
+console.log("Array Value : "+value);
+resultVal=resultVal+" * "+value;
+$("#Array_Div").text(resultVal);
+});
+
+$.each(objPerson,function(key,value){
+console.log("JSON Key : "+key);
+console.log("JSON Value : "+value);
+$("#JSON_Div").text(value);
+});
+var resultobjNumber="";
+$.each(objNumber,function(key,value){
+console.log("Number JSON Key : "+key);
+console.log("Number JSON Key : "+value);
+resultobjNumber=resultobjNumber+ " * " +value;
+$("#numberJSON_Div").text(resultobjNumber);
+});
+
+$.each(arrJSONPerson,function(key,obj){
+console.log("Array JSON Key 1 : "+key);
+console.log("Array JSON Key 1 : "+JSON.stringify(obj));
+$.each(obj,function(objkey,objVal){
+console.log("Array JSON Key 2 : "+objkey);
+console.log("Array JSON Key 2 : "+objVal);
+})
+})
+
+$.each(arrJSONPersonWithAge,function(key,obj){
+$.each(obj,function(objkey,objval){
+console.log("Array JSON Key 3 : "+objkey);
+console.log("Array JSON Key 3 : "+objval);
+})
+})
+
+
+$(".test").each(function(index,val){
+console.log("test "+$(this).text());
+})
+var fruitInfo="";
+$("li").each(function(index,value){
+fruitInfo=fruitInfo+" * "+$(this).text()
+$("#listFruit1").text(fruitInfo);
+})
+
+var fruitInfo1="";
+$("ul li").each(function(index,value){
+fruitInfo1=fruitInfo1+" * "+$(this).text()
+$("#listFruit2").text(fruitInfo1);
+})
+
+})
+</script>
+</body>
+</html>

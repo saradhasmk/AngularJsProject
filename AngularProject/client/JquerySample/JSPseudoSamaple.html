@@ -1,0 +1,89 @@
+<!doctype>
+<html>
+<body>
+<script>
+function extend(Child, Parent) {
+
+  Child.prototype = inherit(Parent.prototype)
+
+  Child.prototype.constructor = Child
+
+  Child.parent = Parent.prototype
+
+}
+
+function inherit(proto) {
+
+  function F() {}
+
+  F.prototype = proto
+
+  return new F
+
+}
+
+
+// --------- the base object ------------
+
+function Animal(name) {
+
+  this.name = name
+
+}
+
+ 
+
+// methods
+
+Animal.prototype.run = function() {
+
+  alert(this + " is running!")
+
+}
+
+ 
+
+Animal.prototype.toString = function() {
+
+  return this.name
+
+}
+
+ 
+
+// inherit
+
+extend(Rabbit, Animal)
+ 
+
+// --------- the child object -----------
+
+function Rabbit(name) {
+
+  Rabbit.parent.constructor.apply(this, arguments)
+
+}
+
+ 
+
+
+ 
+
+// override
+
+Rabbit.prototype.run = function() {
+
+  Rabbit.parent.run.apply(this)
+
+  alert(this + " bounces high into the sky!")
+
+}
+
+ 
+
+var rabbit = new Rabbit('Jumper')
+
+rabbit.run()
+</script>
+</body>
+</html>

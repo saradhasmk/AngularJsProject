@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<script src="jquery-1.11.2.min.js" /></script>
+<body>
+
+<p id="demo"></p>
+
+<script>
+function person(firstName,lastName,age,eyeColor) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;
+    this.eyeColor = eyeColor;
+    this.changeName = function (name) {
+        this.lastName = name;
+    }
+this.getProperties=function(obj){
+for(var key in obj){
+console.log("key  : "+key );
+}
+}
+}
+var myMother = new person("Sally","Rally",48,"green");
+myMother.changeName("Doe");
+myMother.getProperties(myMother);
+
+$.each(myMother,function(index,value){
+console.log("TEst it "+index);
+if(myMother.hasOwnProperty("age")){
+console.log("Yes, I have !!!"+index);
+}
+});
+document.getElementById("demo").innerHTML =
+"My mother's last name is " + myMother.lastName;
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,19 @@
+<!doctype>
+<html>
+<head>
+<script src="jquery-1.11.2.min.js"></script>
+</head>
+<body>
+<script>
+$(document).ready(function(){
+for(var i=0;i<10;i++){
+console.log("first loop i "+i);
+setTimeout(function(){
+console.log("I : "+i++);
+},1000)
+}
+})
+</script>
+</body>
+
+</html>
